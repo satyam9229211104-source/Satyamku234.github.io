@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Phone Number Info</title>
+<title>Phone Number Info - Satyam's Cyber Portal</title>
 
 <style>
 body{
-background:#000;
-color:#00ffff;
+background:#0f172a;
+color:white;
 font-family:Arial;
 text-align:center;
-padding-top:100px;
+padding:40px;
 }
 
 input{
 padding:10px;
-font-size:16px;
-width:220px;
+width:250px;
+border-radius:8px;
+border:none;
+margin:10px;
 }
 
 button{
 padding:10px 20px;
-margin-left:10px;
-background:#00ffff;
+background:#00ff9d;
 border:none;
+border-radius:8px;
 cursor:pointer;
+font-weight:bold;
 }
 
 .result{
-margin-top:30px;
-font-size:18px;
+margin-top:20px;
+background:#1e293b;
+padding:20px;
+border-radius:10px;
 }
 </style>
 
@@ -36,27 +41,39 @@ font-size:18px;
 
 <body>
 
-<h2>Phone Number Information Tool</h2>
+<h1>📱 Phone Number Information Tool</h1>
 
-<input type="text" id="number" placeholder="+91XXXXXXXXXX">
-<button onclick="check()">Check</button>
+<input id="phone" placeholder="+919876543210">
+
+<br>
+
+<button onclick="lookup()">Get Info</button>
 
 <div class="result" id="result"></div>
 
 <script>
 
-function check(){
+async function lookup(){
 
-let num=document.getElementById("number").value;
+let phone = document.getElementById("phone").value;
 
-if(num.startsWith("+91")){
-document.getElementById("result").innerHTML=
-"Country: India<br>Type: Mobile number format<br>Status: Valid format";
+let url = "https://api.apilayer.com/number_verification/validate?number=" + phone;
+
+let res = await fetch(url,{
+headers:{
+"apikey":"YOUR_API_KEY"
 }
-else{
-document.getElementById("result").innerHTML=
-"Country: Unknown<br>Please use international format";
-}
+});
+
+let data = await res.json();
+
+document.getElementById("result").innerHTML = `
+<p><b>Valid:</b> ${data.valid}</p>
+<p><b>Country:</b> ${data.country_name}</p>
+<p><b>Location:</b> ${data.location}</p>
+<p><b>Carrier:</b> ${data.carrier}</p>
+<p><b>Line Type:</b> ${data.line_type}</p>
+`;
 
 }
 
