@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Phone Number Info</title>
+
+<style>
+body{
+background:#000;
+color:#00ffff;
+font-family:Arial;
+text-align:center;
+padding-top:100px;
+}
+
+input{
+padding:10px;
+font-size:16px;
+width:220px;
+}
+
+button{
+padding:10px 20px;
+margin-left:10px;
+background:#00ffff;
+border:none;
+cursor:pointer;
+}
+
+.result{
+margin-top:30px;
+font-size:18px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Phone Number Information Tool</h2>
+
+<input type="text" id="number" placeholder="+91XXXXXXXXXX">
+<button onclick="check()">Check</button>
+
+<div class="result" id="result"></div>
+
+<script>
+
+function check(){
+
+let num=document.getElementById("number").value;
+
+if(num.startsWith("+91")){
+document.getElementById("result").innerHTML=
+"Country: India<br>Type: Mobile number format<br>Status: Valid format";
+}
+else{
+document.getElementById("result").innerHTML=
+"Country: Unknown<br>Please use international format";
+}
+
+}
+
+</script>
+
+</body>
+</html>
