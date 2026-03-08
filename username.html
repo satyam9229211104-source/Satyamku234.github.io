@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Username Finder</title>
+
+<style>
+body{
+background:black;
+color:#00ff00;
+font-family:Courier New;
+text-align:center;
+padding-top:80px;
+}
+
+input{
+padding:10px;
+background:black;
+border:2px solid #00ff00;
+color:#00ff00;
+}
+
+button{
+padding:10px 20px;
+background:black;
+border:2px solid #00ff00;
+color:#00ff00;
+cursor:pointer;
+}
+
+a{
+color:#00ff00;
+display:block;
+margin:10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Username Finder</h1>
+
+<input id="user" placeholder="Enter Username">
+<button onclick="search()">Search</button>
+
+<div id="result"></div>
+
+<script>
+
+function search(){
+
+let u=document.getElementById("user").value;
+
+let sites=[
+"https://github.com/",
+"https://instagram.com/",
+"https://twitter.com/",
+"https://tiktok.com/@",
+"https://reddit.com/user/"
+];
+
+let html="";
+
+for(let i=0;i<sites.length;i++){
+html+="<a target='_blank' href='"+sites[i]+u+"'>"+sites[i]+u+"</a>";
+}
+
+document.getElementById("result").innerHTML=html;
+
+}
+
+</script>
+
+</body>
+</html>
