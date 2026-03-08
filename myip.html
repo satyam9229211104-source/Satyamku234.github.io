@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My IP Address</title><style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#000;
+color:#00ffff;
+text-align:center;
+padding-top:80px;
+}
+
+h1{
+margin-bottom:30px;
+}
+
+.box{
+border:2px solid #00ffff;
+width:350px;
+margin:auto;
+padding:25px;
+box-shadow:0 0 15px #00ffff;
+background:rgba(0,0,0,0.7);
+}
+
+.result{
+margin-top:20px;
+font-size:18px;
+}
+
+.back{
+display:block;
+margin-top:40px;
+color:#00ffff;
+text-decoration:none;
+}
+
+</style></head><body><h1>My IP Information</h1><div class="box"><button onclick="getIP()">Show My IP</button>
+
+<div class="result" id="result"></div></div><a class="back" href="tools.html">⬅ Back to Tools</a>
+
+<script>
+
+function getIP(){
+
+fetch("https://ipapi.co/json/")
+.then(response => response.json())
+.then(data => {
+
+document.getElementById("result").innerHTML =
+"IP Address: " + data.ip + "<br>" +
+"City: " + data.city + "<br>" +
+"Region: " + data.region + "<br>" +
+"Country: " + data.country_name + "<br>" +
+"ISP: " + data.org;
+
+});
+
+}
+
+</script></body>
+</html>
