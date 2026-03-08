@@ -2,93 +2,84 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login Page</title>
+<title>Cyber Security Portal</title>
 
 <style>
 
 body{
-font-family: Arial, sans-serif;
-height:100vh;
-margin:0;
-display:flex;
-justify-content:center;
-align-items:center;
-background: linear-gradient(135deg,#b92bff,#2ec5ff);
+    margin:0;
+    font-family:Arial, sans-serif;
+
+    /* Background image */
+    background:url("bg.jpg") no-repeat center center/cover;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Dark overlay */
+body::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.75);
+    z-index:-1;
 }
 
 .container{
-background:white;
-padding:30px;
-width:320px;
-border-radius:10px;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-text-align:center;
+    text-align:center;
 }
 
-h2{
-margin-bottom:20px;
+.panel{
+    border:2px solid #00ffff;
+    padding:40px;
+    width:340px;
+    background:rgba(0,0,0,0.6);
+    box-shadow:0 0 25px #00ffff;
+    margin-bottom:30px;
 }
 
-.input-box{
-margin:15px 0;
-text-align:left;
+.icon{
+    font-size:70px;
+    color:yellow;
 }
 
-.input-box input{
-width:100%;
-padding:10px;
-border:none;
-border-bottom:2px solid #ccc;
-outline:none;
-font-size:15px;
+.title{
+    color:#ff3b3b;
+    font-size:28px;
+    margin-top:10px;
 }
 
-.forgot{
-text-align:right;
-font-size:12px;
-margin-top:5px;
+.subtitle{
+    color:#00ffff;
 }
 
-.login-btn{
-margin-top:20px;
-width:100%;
-padding:12px;
-border:none;
-border-radius:25px;
-background: linear-gradient(90deg,#2ec5ff,#b92bff);
-color:white;
-font-size:16px;
-cursor:pointer;
+.buttons{
+    display:flex;
+    gap:15px;
+    justify-content:center;
 }
 
-.social{
-margin-top:20px;
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
+    background:#00ffff;
+    color:black;
+    transition:0.3s;
 }
 
-.social img{
-width:35px;
-margin:10px;
-cursor:pointer;
-}
-
-.tools{
-margin-top:25px;
-}
-
-.tool-btn{
-display:block;
-margin:10px 0;
-padding:10px;
-background:#f2f2f2;
-border-radius:8px;
-text-decoration:none;
-color:black;
-font-weight:bold;
-}
-
-.tool-btn:hover{
-background:#ddd;
+button:hover{
+    background:#00aaff;
+    transform:scale(1.1);
+    box-shadow:0 0 10px #00ffff;
 }
 
 </style>
@@ -98,29 +89,16 @@ background:#ddd;
 
 <div class="container">
 
-<h2>Login</h2>
-
-<div class="input-box">
-<input type="text" placeholder="Type your username">
+<div class="panel">
+<div class="icon">⚠</div>
+<div class="title">Cyber Portal</div>
+<div class="subtitle">Secure Access Interface</div>
 </div>
 
-<div class="input-box">
-<input type="password" placeholder="Type your password">
-<div class="forgot">Forgot password?</div>
-</div>
-
-<button class="login-btn">LOGIN</button>
-
-<div class="social">
-<p>Or Sign Up Using</p>
-<img src="https://cdn-icons-png.flaticon.com/512/124/124010.png">
-<img src="https://cdn-icons-png.flaticon.com/512/124/124021.png">
-<img src="https://cdn-icons-png.flaticon.com/512/281/281764.png">
-</div>
-
-<div class="tools">
-<a class="tool-btn" href="iplookup.html">IP Tracker</a>
-<a class="tool-btn" href="username.html">Username Finder</a>
+<div class="buttons">
+<button onclick="location.href='login.html'">Login</button>
+<button onclick="location.href='register.html'">Register</button>
+<button onclick="location.href='tools.html'">Tools</button>
 </div>
 
 </div>
